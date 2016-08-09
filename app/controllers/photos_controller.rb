@@ -17,6 +17,13 @@ class PhotosController < ApplicationController
 	      render 'new'
 	    end
 	  end
+	  
+	  def destroy
+	    @photo = Photo.find(params[:id])
+	    @photo.destroy
+	    flash[:success] = "The photo was destroyed."
+	    redirect_to root_path
+	  end
 
 	  private
 
